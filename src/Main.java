@@ -13,7 +13,7 @@ public class Main {
             if (poll.getTicket() > 0) {
                 if (poll.getTicket() > 0)
                     System.out.println(poll.getName() + " " + poll.getSurname() +
-                            (poll.getGender().equals("m") ? " прокатился" : " прокатилась" )
+                            (poll.getGender().equals("m") ? " прокатился" : " прокатилась")
                             + " на аттракционе");
                 poll.setTicket(poll.getTicket() - 1);
                 if (poll.getTicket() > 0) {

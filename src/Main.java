@@ -1,27 +1,22 @@
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Deque<Person> line = new LinkedList<>(generateClients());
+        Queue<Person> line = new LinkedList<>(generateClients());
 
         while (!line.isEmpty()) {
             Person poll = line.poll();
             if (poll.getTicket() > 0) {
-                if (poll.getTicket() > 0)
-                    System.out.println(poll.getName() + " " + poll.getSurname() +
-                            (poll.getGender().equals("m") ? " прокатился" : " прокатилась")
-                            + " на аттракционе");
+                System.out.println(poll.getName() + " " + poll.getSurname() +
+                        (poll.getGender().equals("m") ? " прокатился" : " прокатилась")
+                        + " на аттракционе");
                 poll.setTicket(poll.getTicket() - 1);
                 if (poll.getTicket() > 0) {
-                    line.offerLast(poll);
+                    line.offer(poll);
                 }
             }
         }
-
     }
 
     public static List<Person> generateClients() {

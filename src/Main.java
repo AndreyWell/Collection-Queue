@@ -7,20 +7,18 @@ public class Main {
 
         while (!line.isEmpty()) {
             Person poll = line.poll();
+            System.out.println(poll.getName() + " " + poll.getSurname() +
+                    (poll.getGender().equals("m") ? " прокатился" : " прокатилась")
+                    + " на аттракционе");
+            poll.setTicket(poll.getTicket() - 1);
             if (poll.getTicket() > 0) {
-                System.out.println(poll.getName() + " " + poll.getSurname() +
-                        (poll.getGender().equals("m") ? " прокатился" : " прокатилась")
-                        + " на аттракционе");
-                poll.setTicket(poll.getTicket() - 1);
-                if (poll.getTicket() > 0) {
-                    line.offer(poll);
-                }
+                line.offer(poll);
             }
         }
     }
 
     public static List<Person> generateClients() {
-        Person a = new Person("Ivan", "Vivanov", "m", 0);
+        Person a = new Person("Ivan", "Vivanov", "m", 5);
         Person b = new Person("Alex", "Lalexin", "m", 2);
         Person c = new Person("Olya", "Golgina", "f", 4);
         Person d = new Person("Petya", "Epetrov", "m", 1);
